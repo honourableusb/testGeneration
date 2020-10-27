@@ -1,0 +1,44 @@
+
+Located at : GUI.java
+Reason for Deletion: Not compatible with the awt.Panel class
+/*private void add(CheckboxSet tests2) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < tests2.sizeOf(); i++)
+		{
+			add(tests2.c.getIndex(i));
+		}
+	}*/
+
+	// This class is for a set of related but independent check boxes, such as test sets, or printing different outputs
+	//private class CheckboxSet extends Component{
+	/**
+		 * 
+		 */
+		/*private static final long serialVersionUID = 1L;
+
+	
+		LinkedList<Checkbox> c;
+		CheckboxSet()
+		{
+			c = new LinkedList<Checkbox>();
+		}
+		public void add(Checkbox newCheckbox)
+		{
+			c.insertToEnd(newCheckbox);
+		}
+		
+		public int sizeOf()
+		{
+			return c.getSize(); 
+		}
+		
+		public boolean[] getStates()
+		{
+			boolean[] states = new boolean[c.getSize()];
+			for(int i = 0; i < c.getSize(); i++)
+			{
+				states[i] = c.getIndex(i).getState();
+			}
+			return states;
+		}
+	}*/
