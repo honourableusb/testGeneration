@@ -2,10 +2,12 @@ package testing;
 
 public class LinkedList<AnyType> {
 	private Node root;
+	private int size = 1;
 	
 	LinkedList()
 	{
 		this.root = new Node();
+		
 	}
 	
 	LinkedList(AnyType value)
@@ -24,6 +26,53 @@ public class LinkedList<AnyType> {
 		}
 	}
 	
+	public int remove(int index)
+	{
+		if(index < 0 || index > getSize()-1) 
+		{
+			Exception e = new Exception("LinkedList Index out of bounds");
+			e.printStackTrace();
+			System.exit(1);
+		}
+		//if we're removing the root, do this process, because there's nothing before the root
+		if(index == 0)
+		{
+			root = root.next;
+			size--;
+			return 0;
+		}
+		Node before = getNode(index-1);
+		//If we're removing the end node do this process, there isn't anything after it
+		if(index == getSize()-1)
+		{
+			before.next = null;
+			size--;
+			return 0;
+		}
+		//If the node being removed is not the beginning nor the end, remove using this
+		before.next = getNode(index).next;
+		size--;
+		return 0;
+	}
+	
+	public Node getNode(int index)
+	{
+		//if index is lower or higher than the indexes we have in this linkedlist, throw an error
+		if(index < 0 || index > getSize()-1) 
+		{
+			Exception e = new Exception("LinkedList Index out of bounds");
+			e.printStackTrace();
+			System.exit(1);
+		}
+		//if not, continue with execution!
+		Node current = root;
+		for(int i = 0; i < index; i++)
+		{
+			current = current.next;
+		}
+		return current;
+	}
+	
 	public void insertToEnd(AnyType value)
 	{
 		if (root.getContent() == null)
@@ -35,6 +84,19 @@ public class LinkedList<AnyType> {
 		while(current.next != null)
 			current = current.next;
 		current.next = new Node(value);
+		size++;
+	}
+	
+	public String toString()
+	{
+		String holder = "";
+		for(int i = 0; i < getSize(); i++)
+		{
+			holder += getIndex(i);
+			if(i+1<(getSize()))
+				holder += "->";
+		}
+		return holder;
 	}
 	
 	public void print()
@@ -90,14 +152,7 @@ public class LinkedList<AnyType> {
 	 */
 	public int getSize()
 	{
-		Node current = root;
-		int counter = 1;
-		while(current.next != null)
-		{
-			counter++;
-			current = current.next;
-		}
-		return counter;
+		return this.size;
 	}
 	
 	private class Node{

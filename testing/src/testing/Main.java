@@ -14,16 +14,27 @@
  */
 
 package testing;
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-import java.awt.*;
-import java.awt.event.*;
+//import java.awt.*;
+//import java.awt.event.*;
 
 public class Main{
 
-	@SuppressWarnings("resource")
+	
 	public static void main(String[] args)
 	{
+		/*
+		 * LinkedList<Integer> k; 
+		 * k = new LinkedList<Integer>();
+		 * k.insertToEnd(1);
+		 * k.insertToEnd(3); 
+		 * k.insertToEnd(2); 
+		 * System.out.println(k.getSize());
+		 * System.out.println(k); 
+		 * k.remove(2); 
+		 * System.out.println(k);
+		 */
 		new GUI();
 		boolean[] checkboxStates;
 		while(GUI.getGenerateState() == false) // while the Generate button has not been pressed
@@ -41,7 +52,7 @@ public class Main{
 		String filepath = GUI.getFilepath();
 		checkboxStates = GUI.getCheckboxStates();
 		//System.out.println(filepath);
-		new fileProcessor(filepath);
+		new fileProcessor(filepath, checkboxStates);
 	}
 	
 }
