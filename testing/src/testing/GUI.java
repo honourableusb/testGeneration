@@ -217,6 +217,7 @@ public class GUI extends Frame implements ActionListener, WindowListener{
 		ErrorPopup()
 		{
 			//code this fully 
+			setAlwaysOnTop(true);
 			setLayout(new FlowLayout());
 			setTitle("Test Generator - Error");
 			this.ErrorMSG = new Label("Error: The programmer forgot to specify what error occured!");
@@ -232,6 +233,7 @@ public class GUI extends Frame implements ActionListener, WindowListener{
 		
 		ErrorPopup(String ErrorMSG)
 		{
+			setAlwaysOnTop(true);
 			setLayout(new FlowLayout());
 			setTitle("Test Generator - Error");
 			this.ErrorMSG = new Label("Error: " + ErrorMSG);
